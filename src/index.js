@@ -1,17 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { heroes } from './data/heroes'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const getHeroeById = (id) => heroes.find(heroe => heroe.id === id);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const getHeroesByOwner = (owner) => heroes.filter(heroe => heroe.owner === owner);
+
+
+console.log(getHeroeById(3));
+console.log(getHeroesByOwner('Marvel'));
